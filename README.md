@@ -20,7 +20,7 @@ npm run sync
 
 ## Authentication limitation
 
-Google does not allow OAuth authorization inside embedded WebViews. Mister's Google button would open the system browser, whose cookies are isolated from this app, and leave the in-app button loading forever. Mister Clean therefore intercepts that button and explains the limitation instead of starting a login that cannot finish. Until Mister offers a native OAuth callback for third-party shells, use a non-Google Mister sign-in method when available. The app must not imitate a browser user agent or copy authentication cookies.
+Google does not allow OAuth authorization inside embedded WebViews. Mister's Google button would open the system browser, whose cookies are isolated from this app, and leave the in-app button loading forever. Mister Clean therefore intercepts that button. When Mister has already identified the account email, it offers to open Mister's own password-recovery form with that address prefilled so the user can try adding an email password to the social account. Nothing is submitted automatically. If Mister does not allow a password for that account, native Google sign-in still requires Mister to register this app's package and signing certificate in its Google project. The app must not imitate a browser user agent or copy authentication cookies.
 
 Run `npm run sync` whenever the filters change. The sync script regenerates the native filter sources before Capacitor synchronizes the projects.
 

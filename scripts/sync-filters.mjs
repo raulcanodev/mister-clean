@@ -33,9 +33,22 @@ const injection = `(() => {
       event.preventDefault();
       event.stopPropagation();
       event.stopImmediatePropagation();
-      window.alert(
-        "El acceso con Google no puede completarse dentro de Mister Clean porque Google y Android no comparten la sesión del navegador con esta app. Usa otro método de acceso de Mister. Si tu cuenta solo tiene Google, tendrás que abrir Mister directamente en el navegador."
-      );
+
+      const email = new URL(window.location.href).searchParams.get("email")
+        || document.body.innerText.match(/[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}/i)?.[0];
+
+      if (email && window.confirm(
+        "Esta cuenta de Mister fue creada con Google. Google no permite completar ese acceso dentro de la WebView, pero puedes intentar crear una contraseña para la misma cuenta mediante el correo de recuperación de Mister. ¿Abrir esa pantalla ahora?"
+      )) {
+        window.location.href = "/new-onboarding/auth/email/recover?email=" + encodeURIComponent(email);
+        return;
+      }
+
+      if (!email) {
+        window.alert(
+          "Google no permite completar este acceso dentro de la WebView. Vuelve atrás, escribe primero tu correo y pulsa de nuevo Continuar con Google para abrir la recuperación de contraseña de Mister."
+        );
+      }
     }, true);
   }
 })();`;
