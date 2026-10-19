@@ -1,0 +1,22 @@
+{
+  "name": "mister-clean-mobile",
+  "private": true,
+  "version": "0.1.1",
+  "description": "Clean iOS and Android shell for Mister Fantasy.",
+  "scripts": {
+    "build": "node scripts/build-web.mjs",
+    "sync:filters": "node scripts/sync-filters.mjs",
+    "sync": "npm run build && npm run sync:filters && cap sync",
+    "open:ios": "cap open ios",
+    "open:android": "cap open android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/core": "^8.0.0",
+    "@capacitor/ios": "^8.0.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.0.0",
+    "typescript": "^7.0.2"
+  }
+}

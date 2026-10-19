@@ -1,0 +1,29 @@
+:root,
+html {
+  --spacing-bottom-ad: 0px !important;
+}
+
+.ad-bottom,
+.ad-container,
+.advertisement,
+.adsbygoogle,
+[data-ad-slot],
+[data-ad-unit],
+iframe[src*="doubleclick.net"],
+iframe[src*="googlesyndication.com"] {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  visibility: hidden !important;
+}
+
+.footer-sticky {
+  bottom: 0 !important;
+}
+
+body {
+  padding-bottom: env(safe-area-inset-bottom, 0px) !important;
+}

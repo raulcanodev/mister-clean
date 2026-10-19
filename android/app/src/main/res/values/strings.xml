@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Mister Clean</string>
+    <string name="title_activity_main">Mister Clean</string>
+    <string name="package_name">dev.raulcano.misterclean</string>
+    <string name="custom_url_scheme">dev.raulcano.misterclean</string>
+</resources>

@@ -1,0 +1,15 @@
+node_modules/
+.DS_Store
+
+# Local Android and build output
+android/local.properties
+android/.gradle/
+android/**/build/
+*.apk
+*.aab
+
+# Local Xcode output
+ios/App/build/
+ios/DerivedData/
+ios/**/xcuserdata/
+
